@@ -270,9 +270,14 @@ To complete this framework - sort of *OptionsToCombine* array may be used to ind
                 ]
               }
             ],
-            "optionsToCombine":[
-              "1-1",
-              "2-1"
+            "optionsToCombine": [
+              {
+                "id": "",
+                "relatedOptions": [
+                "1-1",
+                "2-2"
+                ]
+              }
             ]
           }
         }
