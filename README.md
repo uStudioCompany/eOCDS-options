@@ -6,14 +6,14 @@ Extension to cover following requirement of EU24: "Information to be included in
 
 Directive 2014/24/EU requires Public contracts to set out clear ground rules. This in particular means: *"Information to be included in contract notices … 7. … Where appropriate, description of any options."*. Among other things, this requirement should also apply to clause **II.2.11 - Information about options**
 
-At the moment there is already a draft of [ocds_options_extension](https://github.com/open-contracting-extensions/ocds_options_extension) by OCP,  designed to fulfill above requirement, but this coverage is more formal. 
+At the moment there is already a draft of [ocds_options_extension](https://github.com/open-contracting-extensions/ocds_options_extension) by OCP,  designed to fulfill the above requirement, but this coverage is more formal. 
 
 The new EU eForms have:
 
 >- Options exist: yes/no
 >- Description of options
 
-And this is exectly what *ocds_options_extension* covers. But lets take a look what we will have on a prictical example: 
+And this is exactly what *ocds_options_extension* covers. But let's take a look at what we will have on a practical example: 
 
 *II.2.7: Duration of the contract, framework agreement or dynamic purchasing system* of Contract Notice have to be filled as follows: *duration of contract in months* or *duration of contract in days* or *start: (dd/mm/yyyy) / End: (dd/mm/yyyy)* for contract. However, the Procuring Entity would like to provide himself with some room for maneuver by affording himself the right to extend the duration of the contract. This does not mean he is obliged to do so but he may consider that it may become a useful option to have (for further information, see Regulation 32(11) and 72(1)(a))
 
@@ -37,7 +37,7 @@ Designing this example with *ocds_options_extension* we will have the following:
 
 It's quite complicated to proceed on such information in an automated way but still, looks good ) 
 
-Let's make an example a bit more complicated: let's assume that Procuring Entity wants to put an option for another one attribute that he oblige to indicate in the Contract Notice: *II.2.3) Place of performance*
+Let's make an example a bit more complicated: let's assume that Procuring Entity wants to put an option for another one attribute that he obliged to indicate in the Contract Notice: *II.2.3) Place of performance*
 
 ```
 {
@@ -59,11 +59,11 @@ Let's make an example a bit more complicated: let's assume that Procuring Entity
 }
 ```
 
-Now it is totally impossible to process this... So what to do? And this is where idea of 'options' update rises 
+Now it is totally impossible to process this... So what to do? And this is where the idea of 'options' update rises 
 
 ## Approach
 
-*Option* has to become a tool for Procuring Entity to put the options in the machine-readable way and be applicable for:
+*Option* has to become a tool for Procuring Entity to put the options in a machine-readable way and be applicable for:
 
 - tender.lot
 - criterion.requirement
@@ -71,13 +71,13 @@ Now it is totally impossible to process this... So what to do? And this is where
 
 ### Options for *Lot*
 
-As shown in example above the Procuring Entity may like to provide an options for contract period and/or place of performance. Technically speaking it means that some attributes of *contractPeriod* and *palceOfPerformance* may have an options. 
+As shown in the example above the Procuring Entity may like to provide options for contract period and/or place of performance. Technically speaking it means that some attributes of *contractPeriod* and *palceOfPerformance* may have options. 
 
 Lets design it using the following approach: 
 
-1. *Lot* includes *optionDetails* with all the options details considered by PE for number of attributes of *Lot* (in our case - two of them) presented by *optionGroups*
-2. Each *optionGroup* has a relation to specific attribute of *Lot* indicated by *relatesTo* attribute and set of available options for such related attribute
-3. **Here basically the main trick**: since any attribute on which *optionGroup* may be related is either a property itself or an object with includes properties, *options* of such *optionsGroup* may vary the available value for such property. In the other words - include same properties together with values or being the property. 
+1. *Lot* includes *optionDetails* with all the options details considered by PE for a number of attributes of *Lot* (in our case - two of them) presented by *optionGroups*
+2. Each *optionGroup* has a relation to a specific attribute of *Lot* indicated by *relatesTo* attribute and set of available options for such related attribute
+3. **Here basically the main trick**: since any attribute on which *optionGroup* may be related is either a property itself or an object with includes properties, *options* of such *optionsGroup* may vary the available value for such property. In other words - include the same properties together with values or being the property. 
 
 ```
 {
@@ -134,7 +134,7 @@ Lets design it using the following approach:
 }
 ```
 
-To complete this framework - sort of *OptionsToCombine* array may be used to indicate the options that considered to be applied as a single batch. Lets combine 15-month duration of contract with Romania as a allowed place of performance in this case: 
+To complete this framework - sort of *OptionsToCombine* array may be used to indicate the options that considered to be applied as a single batch. Let's combine the 15-month duration of the contract with Romania as an allowed place of performance in this case: 
 
 ```
 {
@@ -224,7 +224,7 @@ To complete this framework - sort of *OptionsToCombine* array may be used to ind
 ```
 ### Options for *Targets*
 
-*Options* also could be applicable for [*targets*](https://github.com/open-contracting-extensions/ocds_metrics_extension). For example, CA is going to buy 1000 cars during some period but at the same time he considering to buy less cars during shorter period. PE can describe *options* for *target*:
+*Options* also could be applicable for [*targets*](https://github.com/open-contracting-extensions/ocds_metrics_extension). For example, CA is going to buy 1000 cars during some period but at the same time, he considered to buy less cars during a shorter period. PE can describe *options* for *target*:
 
 ```
 {
