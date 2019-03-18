@@ -184,31 +184,78 @@ To complete this framework - sort of *OptionsToCombine* array may be used to ind
               "optionDetails": {
                 "optionGroups": [
                   {
-                    "id": "1",
+                    "id": "3",
                     "description": "",
                     "relatesTo": "maxValue",
                     "options": [
                       {
-                        "id": "1-1",
-                        "maxValue": 3,
-                        "description": "Up to three specialist"
+                        "id": "3-1",
+                        "maxValue": 4,
+                        "minValue":2,
+                        "description": "More then one"
                       },
                       {
-                        "id": "1-2",
-                        "maxValue": 5,
+                        "id": "3-2",
+                        "maxValue": 10,
+                        "minValue":5,
                         "description": "Up to five specialists"
+                      },
+                      {
+                        "id": "3-3",
+                        "minValue": 11,
+                        "description": "More then five specialists"
                       }
                     ]
-                  },
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "004",
+      "title": "Product",
+      "description": "Country of origin",
+      "source": "tenderer",
+      "relatesTo": "item",
+      "relatedItem":"1",
+      "requirementGroups": [
+        {
+          "id": "004-1",
+          "requirements": [
+            {
+              "id": "004-1-1",
+              "title": "Product has to be manufactured in the EU",
+              "dataType": "boolean",
+              "expectedValue": true
+            },
+            {
+              "id": "004-1-2",
+              "title": "Country of origin",
+              "description": "",
+              "dataType": "string",
+              "optionDetails": {
+                "optionGroups": [
                   {
-                    "id": "2",
+                    "id": "4",
                     "description": "",
-                    "relatesTo": "maxValue",
                     "options": [
                       {
-                        "id": "2-1",
-                        "minValue": 6,
-                        "title": "More han five specialists"
+                        "id": "4-1",
+                        "value":"HU",
+                        "description": "Hungary"
+                      },
+                      {
+                        "id": "4-2",
+                        "value":"IT",
+                        "description": "Italy"
+                      },
+                      {
+                        "id": "4-3",
+                        "value": "other",
+                        "description": "Other EU country"
                       }
                     ]
                   }
@@ -247,23 +294,23 @@ To complete this framework - sort of *OptionsToCombine* array may be used to ind
           "optionDetails": {
             "optionGroups": [
               {
-                "id": "1",
+                "id": "5",
                 "description": "",
                 "relatesTo": "measure",
                 "options": [
                   {
-                    "id": "1-1",
+                    "id": "5-1",
                     "measure": 800
                   }
                 ]
               },
               {
-                "id": "2",
+                "id": "6",
                 "description": "",
-                "relatesTo": "perios",
+                "relatesTo": "period",
                 "options": [
                   {
-                    "id": "2-1",
+                    "id": "6-1",
                     "startDate": "2015-01-01T00:00:00Z",
                     "endDate": "2015-09-31T23:59:59Z"
                   }
@@ -274,8 +321,8 @@ To complete this framework - sort of *OptionsToCombine* array may be used to ind
               {
                 "id": "",
                 "relatedOptions": [
-                "1-1",
-                "2-2"
+                "5-1",
+                "6-1"
                 ]
               }
             ]
