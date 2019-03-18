@@ -186,7 +186,6 @@ To complete this framework - sort of *OptionsToCombine* array may be used to ind
                   {
                     "id": "3",
                     "description": "",
-                    "relatesTo": "maxValue",
                     "options": [
                       {
                         "id": "3-1",
